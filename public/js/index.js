@@ -13,9 +13,6 @@ const addUrl = (postUrl, url) => {
                 $('.shorten-url-div').find('input').attr('title', url);
                 $('.shorten-url-div').next('span').find('a').attr('href', url);
                 $('.shorten-url-div').removeClass('hide');
-                // setTimeout(function(){
-                //     window.location.reload();
-                // }, 1000);
             }else{
                 iziToast.error({
                     message: response.data.message,
@@ -23,7 +20,7 @@ const addUrl = (postUrl, url) => {
             }
         })
         .catch(function (err) {
-            console.log(err)
+            console.log(err);
         })
     }else{
         let message = '';
@@ -36,18 +33,12 @@ const addUrl = (postUrl, url) => {
     }
 }
 
-document.getElementById("clipboard_btn_id").addEventListener('click', function (e) {
+document.getElementById("copy-shorten-link").addEventListener('click', function (e) {
     e.preventDefault();
-    let element = document.getElementById('shorten-url');
-    element.select();
-    element.setSelectionRange(0, element.value.length);
-    document.execCommand('copy');
-    iziToast.success({
-        'timeout' : 1000,
-        'transitionIn' : 'fadeIn',
-        'transitionOut' : 'fadeOut',
-        'progressBar': false,
-        'ballon' : true,
-        'message' : 'Copied to clipboard'
-    })
+    copyClipboard(document.getElementById('shorten-url'));
+});
+
+document.getElementById("copy-access-token").addEventListener('click', function (e) {
+    e.preventDefault();
+    copyClipboard(document.getElementById('personal-access-token'));
 });

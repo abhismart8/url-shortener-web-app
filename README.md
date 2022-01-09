@@ -12,5 +12,19 @@ To install & run this project, do the following:-
     - Create a database and put the database details in .env file
     - Now, run "php artisan serve" command to run the application
 
+## API
+    1.  Get all links of current user:-
+        path - api/v1/urls?apikey=your_api_key
+        method - GET
+        response(JSON) - all urls data with pagination
+
+    2.  Shorten Url API:-
+        path - api/v1/shorten/url?apikey=your_api_key
+        method - POST
+        request body (JSON) - {
+            "url": "any valid url"
+        }
+        response(JSON) - shorten url data
+
 ## APPLICATION LIVE URL
-https://url-shortener-web-app-final.herokuapp.com/login
+http://url-shortener-web-app-final.herokuapp.com/login

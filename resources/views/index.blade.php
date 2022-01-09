@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-12 text-center">
+    <div class="col-sm-8 text-center">
         <div class="mt-15">
             <div class="add-new-url">
                 <h2><strong> Shorten Your Link </strong></h2>
@@ -21,7 +21,7 @@
                     <input type="text" name="shorten-url" class="form-control" id="shorten-url" 
                     readonly>
                     <span style="float:right;">
-                        <a href="javascript:;" class="btn btn-secondary" id="clipboard_btn_id">
+                        <a href="javascript:;" class="btn btn-secondary clipboard_btn" id="copy-shorten-link">
                             <i class="fa fa-clipboard" aria-hidden="true"></i>
                         </a>
                     </span>
@@ -29,6 +29,22 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-4 text-center">
+        <div class="add-new-url mt-15">
+            <h3><strong> API Key </strong></h3>
+            <div class="form-group personal-access-token-div">
+                <input type="text" name="personal-access-token" class="form-control" id="personal-access-token" 
+                readonly value="{{Auth::user()->accessToken->token??''}}">
+                <span style="float:right;">
+                    <a href="javascript:;" class="btn btn-secondary clipboard_btn" id="copy-access-token">
+                        <i class="fa fa-clipboard" aria-hidden="true"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-sm-12 text-center">
         <div class="form-group mt-30">
             <h4>My Links</h4>

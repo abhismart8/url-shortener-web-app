@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function urls(){
         return $this->hasMany(Url::class);
     }
+
+    public function accessToken(){
+        return $this->hasOne(PersonalAccessToken::class);
+    }
 }

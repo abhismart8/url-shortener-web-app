@@ -14,7 +14,7 @@ class UrlRepository
         $result = Url::user($userId)->sorting($sort);
 
         if($perPage){
-            $result = $result->paginate($perPage);
+            $result = $result->simplePaginate($perPage);
         }
 
         return $result;
@@ -28,13 +28,17 @@ class UrlRepository
     
     public function create($data)
     {
+        if (!validateURL($data['url']??null)) {
+            return response()->json(['status' => 'failed', 'status_code' => 10406 ,'message' => 'Invalid url found']);
+        }
+
         $data['id'] = Str::uuid()->toString();
         $data['slug'] = $this->createSlug();
         try {
             $url = Url::create($data);
             Log::info("new url added ".json_encode($data));
             return response()->json(['status' => 'success', 'data' => $url->refresh(),
-            'message' => 'New url added successfully']);
+            'message' => 'New url added successfully'], 200);
         } catch(Throwable $e) {
             Log::info("adding new url failed with ".$e->getMessage());
             return response()->json(['status' => 'failed', 'message' => 'Adding new url failed']);

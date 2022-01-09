@@ -50,6 +50,13 @@ class Url extends Model
         //
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['shorten_url'];
+
     public function scopeUser($query, $userId=null){
         if($userId){
             return $query->where('user_id', $userId);

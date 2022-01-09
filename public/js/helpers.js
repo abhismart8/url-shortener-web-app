@@ -5,3 +5,17 @@ const validateEmail = (email) => {
     }
     return false;
 }
+
+const copyClipboard = element => {
+    element.select();
+    element.setSelectionRange(0, element.value.length);
+    document.execCommand('copy');
+    iziToast.success({
+        'timeout' : 1000,
+        'transitionIn' : 'fadeIn',
+        'transitionOut' : 'fadeOut',
+        'progressBar': false,
+        'ballon' : true,
+        'message' : 'Copied to clipboard'
+    })
+}

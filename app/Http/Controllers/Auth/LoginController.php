@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Log;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\PersonalAccessToken;
 
 class LoginController extends Controller
 {
@@ -89,6 +90,13 @@ class LoginController extends Controller
         $data['id'] = Str::uuid()->toString();
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
+
+        // generate personal access token
+        PersonalAccessToken::create([
+            'id' => Str::uuid()->toString(),
+            'user_id' => $user->id,
+            'token' => Str::random(60)
+        ]);
 
         $userReturned = $user->only(['username', 'email']);
         $redirectUrl = $this->redirectAfterLogout;
