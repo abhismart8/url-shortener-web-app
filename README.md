@@ -12,7 +12,7 @@ To install & run this project, do the following:-
     - Create a database and put the database details in .env file
     - Now, run "php artisan serve" command to run the application
 
-## API
+## API's
     1.  Get all links of current user:-
         path - api/v1/urls?apikey=your_api_key
         method - GET
