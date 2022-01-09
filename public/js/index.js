@@ -33,6 +33,50 @@ const addUrl = (postUrl, url) => {
     }
 }
 
+const deleteUrl = (deleteUrl) => {
+    axios.delete(deleteUrl)
+    .then(function (response) {
+        if(response.data.status == 'success'){
+            iziToast.success({
+                message: response.data.message,
+            });
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000)
+        }else{
+            iziToast.error({
+                message: response.data.message,
+            });
+        }
+    })
+    .catch(function (err) {
+        console.log(err);
+    })
+}
+
+const updateUrl = (updateUrl, url) => {
+    axios.put(updateUrl, {
+        url: url
+    })
+    .then(function (response) {
+        if(response.data.status == 'success'){
+            iziToast.success({
+                message: response.data.message,
+            });
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000)
+        }else{
+            iziToast.error({
+                message: response.data.message,
+            });
+        }
+    })
+    .catch(function (err) {
+        console.log(err);
+    })
+}
+
 document.getElementById("copy-shorten-link").addEventListener('click', function (e) {
     e.preventDefault();
     copyClipboard(document.getElementById('shorten-url'));
@@ -42,3 +86,9 @@ document.getElementById("copy-access-token").addEventListener('click', function 
     e.preventDefault();
     copyClipboard(document.getElementById('personal-access-token'));
 });
+
+$('.update-url-btn').on('click', function(){
+    $('#updateLinkModal').find('input#link').val($(this).attr('data-url'));
+    $('#updateLinkModal').find('input#link').attr('data-id', $(this).parent('td').parent('tr').attr('data-id'));
+    $('#updateLinkModal').modal('show');
+})

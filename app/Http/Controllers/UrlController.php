@@ -38,4 +38,14 @@ class UrlController extends Controller
         ];
         return $this->urlRepository->create($data);
     }
+
+    public function update(Request $request, $id)
+    {
+        return $this->urlRepository->update($id, $request['url']??null);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        return $this->urlRepository->delete($id);
+    }
 }

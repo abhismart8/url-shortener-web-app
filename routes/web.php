@@ -33,4 +33,10 @@ Route::middleware(['auth'])->group(function () {
 
     /*--------------------------- Add Url ---------------------------*/
     Route::post('add-url', [UrlController::class, 'create'])->name('add-url');
+
+    /*--------------------------- Delete Url ---------------------------*/
+    Route::delete('delete/{id}', [UrlController::class, 'delete'])->name('delete-url');
+
+    /*--------------------------- Update Url ---------------------------*/
+    Route::put('update/{id}', [UrlController::class, 'update'])->name('update-url');
 });
