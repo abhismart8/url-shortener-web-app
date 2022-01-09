@@ -39,7 +39,7 @@
 }
 
 .add-new-url {
-    padding: 20px 20px;;
+    padding: 20px 60px;;
 }
 
 #shorten-url, #personal-access-token {
@@ -66,4 +66,14 @@ table.scrolldown tbody {
     
 tbody td, thead th {
     width : 400px;
+}
+
+@media(max-width: 767px) {
+    .add-new-url {
+        padding: 10px 10px;;
+    }
+
+    .signin {
+        padding: 20px 20px;
+    }
 }
