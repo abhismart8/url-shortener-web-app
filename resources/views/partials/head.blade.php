@@ -13,13 +13,13 @@
 <meta property="og:url" content="{{ preg_replace('/^http:/i', 'https:', Request::fullUrl()) }}" />
 <meta property="og:site_name" content="{{ config('app.name') }}" />
 <meta property="og:description" content="{{ config('constants.app.description') }}" />
-<meta property="og:image" itemprop="image" content="{{ config('constants.app.logo') }}" />
+<meta property="og:image" itemprop="image" content="{{ asset(config('constants.app.logo')) }}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="628" />
 <meta property="og:locale" content="{{ App::currentLocale() }}" />
 
-<link rel="icon" type="image/png" href="{{ config('constants.app.logo') }}" />
-<link rel="shortcut icon" type="image/x-icon" href="{{ config('constants.app.logo') }}" />
+<link rel="icon" type="image/png" href="{{ asset(config('constants.app.logo')) }}" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset(config('constants.app.logo')) }}" />
 
 
 <!-- Default CSS -->
