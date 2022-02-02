@@ -32,4 +32,4 @@ To install & run this project, do the following:-
         response(JSON) - shorten url data
 
 ## APPLICATION LIVE URL
-http://abhishek-shukla-portfolio.herokuapp.com/
+http://url-shortener-web-app-final.herokuapp.com/
